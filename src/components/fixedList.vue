@@ -23,11 +23,10 @@ export default {
     };
   },
   created() {
-    this.makeTen();
-    this.makeTen();
+    this.makeTwenty();
   },
   methods: {
-    makeTen() {
+    makeTwenty() {
       const lorem =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet efficitur mi, quis condimentum ante. Aliquam eget risus eget quam tincidunt congue. Nunc sit amet urna luctus, blandit justo vitae, luctus libero. Vivamus quis sapien in orci euismod ultrices. Nullam semper massa ut euismod vehicula. Quisque quis eros nunc. Suspendisse interdum, purus in consequat venenatis, massa orci ultricies libero, maximus elementum elit tellus vel felis. In nulla felis, tempus ac eleifend at, posuere in odio. In accumsan aliquet semper. Phasellus tincidunt massa sed lacus sollicitudin, a congue ex sollicitudin.";
       let times = 0;
@@ -36,11 +35,11 @@ export default {
         var box = {};
 
         box.id = this.boxes.length + 1;
-        box.text = lorem.substr(0, Math.random() * (613 - 56) + 56);
+        box.text = lorem.substr(0, Math.random() * (300 - 56) + 56);
 
         this.boxes.push(box);
         times += 1;
-      } while (times < 10);
+      } while (times < 20);
     },
   },
 };
