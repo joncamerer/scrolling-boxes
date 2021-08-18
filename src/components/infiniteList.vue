@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <h1>Scrolling Boxes</h1>
-    <div id="summary-container">
+  <div id="infinite-list">
+    <h1>Infinite Boxes</h1>
+    <div id="infinite-container">
       <summary-box
         v-for="box in boxes"
         :key="box.id"
         v-bind:box="box"
-        class="box"
+        class="infinite-box"
       />
     </div>
   </div>
@@ -26,7 +26,7 @@ export default {
     this.makeTen();
   },
   mounted() {
-    const list = document.getElementById("summary-container");
+    const list = document.getElementById("infinite-container");
 
     list.addEventListener("scroll", () => {
       if (list.scrollTop + list.clientHeight >= list.scrollHeight) {
@@ -55,14 +55,22 @@ export default {
 </script>
 
 <style>
-#summary-container {
-  max-height: 200px;
+#infinite-list {
+  width: 60vw;
 
+  display: flex;
+  flex-direction: column;
+}
+
+#infinite-container {
   overflow: scroll;
 }
 
-.box {
+.infinite-box {
   border: 1px solid blue;
+  color: blue;
+  background-color: blue;
+
   margin-bottom: 10px;
 }
 </style>
