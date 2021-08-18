@@ -12,7 +12,7 @@
     </div>
 
     <div id="load-bar">
-      <div id="load-radio">
+      <div id="load-select">
         <span>Generate </span>
         <select v-model="load">
           <option value="5">5</option>
@@ -73,14 +73,12 @@ export default {
 
 <style>
 #infinite-list {
-  width: 60vw;
-
   display: flex;
   flex-direction: column;
+  width: 60vw;
 }
 
 #infinite-container {
-  flex-grow: 1;
   overflow: scroll;
 }
 

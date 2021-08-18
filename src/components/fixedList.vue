@@ -48,11 +48,10 @@ export default {
 
 <style>
 #fixed-list {
-  height: 50vh;
-
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  height: 50vh;
 }
 
 #fixed-container {
