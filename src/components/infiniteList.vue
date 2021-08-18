@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       boxes: [],
-      load: 5,
+      load: 10,
     };
   },
   created() {
@@ -80,6 +80,7 @@ export default {
 }
 
 #infinite-container {
+  flex-grow: 1;
   overflow: scroll;
 }
 

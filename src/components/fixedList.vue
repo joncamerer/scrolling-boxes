@@ -1,6 +1,6 @@
 <template>
   <div id="fixed-list">
-    <h1>Twenty Boxes</h1>
+    <h1>{{ boxes.length }} Boxes</h1>
     <div id="fixed-container">
       <summary-box
         v-for="box in boxes"
@@ -8,6 +8,7 @@
         v-bind:box="box"
         class="fixed-box"
       />
+      <button type="button" v-on:click="makeTwenty()">Load 20 More</button>
     </div>
   </div>
 </template>
@@ -47,6 +48,8 @@ export default {
 
 <style>
 #fixed-list {
+  height: 50vh;
+
   display: flex;
   flex-direction: column;
   overflow: hidden;
