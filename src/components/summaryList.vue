@@ -25,6 +25,15 @@ export default {
   created() {
     this.makeTen();
   },
+  mounted() {
+    const list = document.getElementById("summary-container");
+
+    list.addEventListener("scroll", () => {
+      if (list.scrollTop + list.clientHeight >= list.scrollHeight) {
+        this.makeTen();
+      }
+    });
+  },
   methods: {
     makeTen() {
       const lorem =
