@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import summaryBox from "@/components/summaryBox";
+import summaryBox from "@/components/SummaryBox";
 
 export default {
   components: { summaryBox },

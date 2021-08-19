@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import summaryBox from "@/components/summaryBox";
+import summaryBox from "@/components/SummaryBox";
 
 export default {
   components: { summaryBox },
@@ -51,7 +51,7 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 50vh;
+  height: 50%;
 }
 
 #fixed-container {

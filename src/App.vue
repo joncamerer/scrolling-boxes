@@ -1,24 +1,30 @@
 <template>
-  <div id="app-list-flex">
-    <div id="main-scroll-flex">
-      <infinite-list />
-    </div>
-    <div id="sidebar-flex">
-      <fixed-list />
-      <fixed-list />
+  <div id="header-body-flex">
+    <Header />
+    <div id="body-flex">
+      <div id="main-scroll-flex">
+        <infinite-list />
+      </div>
+
+      <div id="sidebar-flex">
+        <fixed-list />
+        <fixed-list />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import FixedList from "@/components/fixedList";
-import InfiniteList from "@/components/infiniteList";
+import FixedList from "@/components/FixedList";
+import InfiniteList from "@/components/InfiniteList";
+import Header from "@/components/Header";
 
 export default {
   name: "App",
   components: {
     FixedList,
     InfiniteList,
+    Header,
   },
 };
 </script>
@@ -27,6 +33,7 @@ export default {
 html {
   display: flex;
   height: 100vh;
+  width: 100vw;
 }
 
 body {
@@ -43,9 +50,20 @@ body {
   color: #2c3e50;
 }
 
-#app-list-flex {
+#header-body-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  background-color: green;
+  height: 10%;
+}
+
+#body-flex {
   display: flex;
   flex-direction: row;
+  height: 90%;
 }
 
 #main-scroll-flex {
