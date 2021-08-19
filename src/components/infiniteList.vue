@@ -1,8 +1,17 @@
 <template>
   <div id="infinite-list">
-    <h1>Infinite Boxes</h1>
+    <h1 id="infinite-header">Infinite Boxes</h1>
 
-    <div id="infinite-container">
+    <div id="infinite-container" v-on:scroll="scrolledDown()">
+      <button
+        id="scroll-top-button"
+        type="button"
+        v-show="showButton"
+        v-on:click="scrollToTop()"
+      >
+        &#8743;
+      </button>
+
       <summary-box
         v-for="box in boxes"
         :key="box.id"
@@ -37,6 +46,7 @@ export default {
     return {
       boxes: [],
       load: 10,
+      showButton: false,
     };
   },
   created() {
@@ -55,7 +65,7 @@ export default {
     makeLoad() {
       const lorem =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet efficitur mi, quis condimentum ante. Aliquam eget risus eget quam tincidunt congue. Nunc sit amet urna luctus, blandit justo vitae, luctus libero. Vivamus quis sapien in orci euismod ultrices. Nullam semper massa ut euismod vehicula. Quisque quis eros nunc. Suspendisse interdum, purus in consequat venenatis, massa orci ultricies libero, maximus elementum elit tellus vel felis. In nulla felis, tempus ac eleifend at, posuere in odio. In accumsan aliquet semper. Phasellus tincidunt massa sed lacus sollicitudin, a congue ex sollicitudin.";
-      let times = 0;
+      var times = 0;
 
       do {
         var box = {};
@@ -66,6 +76,18 @@ export default {
         this.boxes.push(box);
         times += 1;
       } while (times < this.load);
+    },
+    scrollToTop() {
+      var list = document.getElementById("infinite-container");
+      var header = document.getElementById("infinite-header");
+      var listTop = list.offsetTop;
+      var headTop = header.offsetTop;
+
+      list.scrollTo(0, headTop - listTop);
+    },
+    scrolledDown() {
+      this.showButton =
+        document.getElementById("infinite-container").scrollTop > 500;
     },
   },
 };
@@ -80,6 +102,20 @@ export default {
 
 #infinite-container {
   overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+#scroll-top-button {
+  position: fixed;
+  margin-top: 15px;
+  padding: 5px 12px;
+
+  border-radius: 50%;
+  border: 1px solid lightskyblue;
+
+  font-size: larger;
+  background-color: lightblue;
+  color: blue;
 }
 
 .infinite-box {
