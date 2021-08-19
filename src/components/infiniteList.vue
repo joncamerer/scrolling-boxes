@@ -24,10 +24,13 @@
       <div id="load-select">
         <span>Generate </span>
         <select v-model="load">
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
+          <option
+            v-for="option in options"
+            :key="option.value"
+            :value="option.value"
+          >
+            {{ option.text }}
+          </option>
         </select>
         <span> boxes at a time</span>
       </div>
@@ -46,6 +49,12 @@ export default {
     return {
       boxes: [],
       load: 10,
+      options: [
+        { text: "five", value: 5 },
+        { text: "ten", value: 10 },
+        { text: "twenty-five", value: 25 },
+        { text: "fifty", value: 50 },
+      ],
       showButton: false,
     };
   },
